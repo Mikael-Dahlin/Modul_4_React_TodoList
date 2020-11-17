@@ -4,7 +4,7 @@ import Header from './components/layout/Header';
 import About from './components/pages/About';
 import Todos from './components/Todos';
 import AddTodo from './components/AddTodo';
-import Axios from 'axios';
+import axios from 'axios';
 
 import './App.css';
 
@@ -14,7 +14,7 @@ class App extends Component{
   }
 
   componentDidMount() {
-    Axios.get('http://jsonplaceholder.typicode.com/todos?_limit=10')
+    axios.get('http://jsonplaceholder.typicode.com/todos?_limit=10')
       .then(res => this.setState({ todos: res.data}))
       .catch(console.error);;
   }
@@ -43,7 +43,7 @@ class App extends Component{
 
   // Add Todo
   addTodo = (title) => {
-    Axios.post('http://jsonplaceholder.typicode.com/todos', {
+    axios.post('http://jsonplaceholder.typicode.com/todos', {
       title,
       completed: false
     }).then((res) => {
@@ -57,7 +57,7 @@ class App extends Component{
 
   // Delete Todo
   deleteTodo = (id) => {
-    Axios.delete(`http://jsonplaceholder.typicode.com/todos/${id}`)
+    axios.delete(`http://jsonplaceholder.typicode.com/todos/${id}`)
       .then((res) => {
         const newTodos = this.state.todos.filter(todo => todo.id !== id);
         this.setState({ todos: newTodos });
@@ -82,7 +82,7 @@ class App extends Component{
                 />
               </React.Fragment>
             )} />
-            <Route path="/about" component={About} />
+            <Route path="/about/" component={About} />
           </div>
         </div>
       </Router>
