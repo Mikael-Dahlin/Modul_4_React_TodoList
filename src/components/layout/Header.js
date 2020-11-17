@@ -7,10 +7,10 @@ function Header() {
             <h1>TodoList</h1>
             <Link 
                 style={linkStyle} 
-                to="/"
+                to="/Modul_4_React_TodoList/"
             >Home</Link> | <Link 
                 style={linkStyle} 
-                to="/about"
+                to="/Modul_4_React_TodoList/about"
             >About</Link>
         </header>
     )
